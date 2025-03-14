@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+ENV/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Model weights and data
+*.pt
+data/raw/
+data/processed/
+runs/
+logs/
+
+# Results
+results/detections/*
+results/reports/*
+results/analysis/*
+!results/detections/.gitkeep
+!results/reports/.gitkeep
+!results/analysis/.gitkeep
+
+# Environment variables
+.env 

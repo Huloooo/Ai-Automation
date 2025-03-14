@@ -1,0 +1,14 @@
+path: /Users/humamkhurram/Desktop/AI Automotive  # dataset root dir
+train: /Users/humamkhurram/Desktop/AI Automotive/data/processed/images/train  # train images
+val: /Users/humamkhurram/Desktop/AI Automotive/data/processed/images/val  # val images
+
+# Classes
+names:
+  0: person
+  1: car
+  2: motorcycle
+  3: bus
+  4: truck
+  5: bicycle
+  6: van
+  7: other-vehicle 

@@ -1,0 +1,29 @@
+# Dataset paths
+path: data/processed  # dataset root dir
+train: images/train  # train images (relative to 'path')
+val: images/val  # val images (relative to 'path')
+test:  # test images (optional)
+
+# Classes
+names:
+  0: person
+  1: car
+  2: motorcycle
+  3: bus
+  4: truck
+  5: bicycle
+  6: van
+  7: other-vehicle
+
+# Dataset information
+nc: 8  # Number of classes
+
+# Optional: Dataset specific parameters
+task: detect  # Task type (detect, segment, classify)
+single_cls: false  # Train as single-class dataset
+rect: false  # Rectangular training
+
+# Download script/URL (optional)
+download: |
+  from utils.dataset_utils import download_coco_dataset
+  download_coco_dataset() 

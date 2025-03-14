@@ -1,0 +1,151 @@
+# Training Configuration
+
+# Data Configuration
+data_yaml: "data/dataset.yaml"
+image_size: 640
+
+# Training Parameters
+epochs: 100
+batch_size: 16
+experiment_name: "vehicle_pedestrian_detection"
+
+# Output Configuration
+output_dir: "outputs"
+
+# Training Parameters
+training_params:
+  # Optimizer settings
+  optimizer: "AdamW"
+  lr0: 0.001  # Initial learning rate
+  lrf: 0.01  # Final learning rate ratio
+  momentum: 0.937
+  weight_decay: 0.0005
+  
+  # Loss settings
+  box: 7.5  # Box loss gain
+  cls: 0.5  # Class loss gain
+  dfl: 1.5  # DFL loss gain
+  
+  # Augmentation settings
+  hsv_h: 0.015  # HSV-Hue augmentation
+  hsv_s: 0.7  # HSV-Saturation augmentation
+  hsv_v: 0.4  # HSV-Value augmentation
+  degrees: 0.0  # Rotation
+  translate: 0.1  # Translation
+  scale: 0.5  # Scale
+  shear: 0.0  # Shear
+  perspective: 0.0  # Perspective
+  flipud: 0.0  # Vertical flip
+  fliplr: 0.5  # Horizontal flip
+  mosaic: 1.0  # Mosaic augmentation
+  mixup: 0.0  # Mixup augmentation
+  copy_paste: 0.0  # Copy-paste augmentation
+  
+  # Training settings
+  cache: false  # Cache images for faster training
+  device: ""  # Device to train on (empty for auto-detection)
+  workers: 8  # Number of worker threads
+  project: null  # Project name
+  name: null  # Experiment name
+  exist_ok: false  # Existing project/name ok
+  pretrained: true  # Use pretrained model
+  optimizer: "AdamW"  # Optimizer (SGD, Adam, AdamW)
+  verbose: true  # Verbose output
+  seed: 42  # Random seed
+  deterministic: true  # Deterministic mode
+  single_cls: false  # Train as single-class dataset
+  rect: false  # Rectangular training
+  cos_lr: false  # Cosine LR scheduler
+  close_mosaic: 10  # Disable mosaic augmentation for final epochs
+  resume: false  # Resume training from last checkpoint
+  amp: true  # Automatic Mixed Precision
+  fraction: 1.0  # Dataset fraction to train on
+  patience: 100  # Early stopping patience
+  save_period: -1  # Save checkpoint every x epochs (-1 for last epoch only)
+  
+# Export Parameters
+export_format: "onnx"  # Format to export the model to (onnx, torchscript, etc.)
+
+# Training Parameters
+training_params:
+  patience: 50  # Early stopping patience
+  save_best: true  # Save best model
+  save_last: true  # Save last model
+  cache: false  # Cache images in memory
+  workers: 8  # Number of worker threads
+  device: "auto"  # Use GPU if available
+  optimizer: "SGD"  # Optimizer type
+  lr0: 0.01  # Initial learning rate
+  lrf: 0.01  # Final learning rate
+  momentum: 0.937  # SGD momentum
+  weight_decay: 0.0005  # Optimizer weight decay
+  warmup_epochs: 3  # Warmup epochs
+  warmup_momentum: 0.8  # Warmup initial momentum
+  warmup_bias_lr: 0.1  # Warmup initial bias lr
+  box: 7.5  # Box loss gain
+  cls: 0.5  # Cls loss gain
+  dfl: 1.5  # DFL loss gain
+  pose: 12.0  # Pose loss gain
+  kobj: 1.0  # Keypoint obj loss gain
+  label_smoothing: 0.0  # Label smoothing epsilon
+  nbs: 64  # Nominal batch size
+  overlap_mask: true  # Masks should overlap during training
+  mask_ratio: 4  # Mask downsample ratio
+  dropout: 0.0  # Use dropout regularization
+  val: true  # Validate training results
+  plots: true  # Save plots
+  rect: false  # Rectangular training
+  cos_lr: false  # Cosine LR scheduler
+  close_mosaic: 10  # Disable mosaic augmentation for final epochs
+  resume: false  # Resume training from last checkpoint
+  amp: true  # Mixed precision training
+  fraction: 1.0  # Dataset fraction to train on
+  profile: false  # Profile ONNX and TensorRT speeds
+  freeze: null  # Freeze layers
+  multi_scale: false  # Vary img-size +/- 50%
+  single_cls: false  # Train as single-class dataset
+  optimizer: "SGD"  # Optimizer (SGD, Adam, etc.)
+  verbose: false  # Print verbose output
+  seed: 0  # Global training seed
+  deterministic: true  # Reproducible training
+  plots: true  # Save plots
+  save: true  # Save train checkpoints
+  save_json: false  # Save a COCO-JSON results file
+  save_hybrid: false  # Save hybrid version of labels
+  conf: null  # Object confidence threshold
+  iou: 0.7  # NMS IoU threshold
+  max_det: 300  # Maximum number of detections per image
+  half: false  # Use FP16 half-precision inference
+  dnn: false  # Use OpenCV DNN for ONNX inference
+  plots: true  # Save plots
+
+# Export Parameters
+export_params:
+  dynamic: true  # Dynamic ONNX axes
+  simplify: true  # Simplify ONNX model
+  opset: 12  # ONNX opset version
+  workspace: 4  # Workspace size in GB
+  int8: false  # Int8 quantization
+  inplace: false  # Use inplace ops (e.g. slice op not supported)
+  keras: false  # Export Keras model
+  optimize: false  # TorchScript: optimize for mobile
+  int8: false  # Int8 quantization
+  dynamic: true  # Dynamic ONNX axes
+  simplify: true  # Simplify ONNX model
+  opset: 12  # ONNX opset version
+  workspace: 4  # Workspace size in GB
+  int8: false  # Int8 quantization
+  inplace: false  # Use inplace ops (e.g. slice op not supported)
+  keras: false  # Export Keras model
+  optimize: false  # TorchScript: optimize for mobile
+
+# Evaluation Parameters
+eval_params:
+  save_json: false  # Save a COCO-JSON results file
+  save_hybrid: false  # Save hybrid version of labels
+  conf: null  # Object confidence threshold
+  iou: 0.7  # NMS IoU threshold
+  max_det: 300  # Maximum number of detections per image
+  half: false  # Use FP16 half-precision inference
+  dnn: false  # Use OpenCV DNN for ONNX inference
+  plots: true  # Save plots 
